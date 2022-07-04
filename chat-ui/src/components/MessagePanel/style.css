@@ -1,0 +1,29 @@
+.message-panel {
+  height: 480px;
+  width: 360px;
+  border: 2px solid;
+  border-radius: 8px;
+  overflow-y: overlay;
+  padding: 24px;
+}
+
+p {
+  margin-top: 0;
+}
+
+p.subtitle {
+  font-size: 12px;
+  color: gray;
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.notif {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+.own {
+  text-align: right;
+}
