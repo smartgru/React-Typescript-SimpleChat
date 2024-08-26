@@ -36,8 +36,10 @@ const Chat = () => {
     return <Navigate to="/" />;
   }
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     socket.emit("message", { message: text });
+    setText("");
   };
 
   const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,16 +51,14 @@ const Chat = () => {
     <div className="chat">
       <h1>Welcome Join!</h1>
       <MessagePanel messageList={messageList} sId={socket.id} />
-      <div className="chat-input">
+      <form className="chat-input" onSubmit={handleSendMessage}>
         <input
           value={text}
           placeholder="Type your message"
           onChange={handleChangeText}
         />
-        <button type="button" onClick={handleSendMessage}>
-          Send
-        </button>
-      </div>
+        <button type="submit">Send</button>
+      </form>
     </div>
   );
 };
